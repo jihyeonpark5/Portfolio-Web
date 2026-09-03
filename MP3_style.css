@@ -1,0 +1,177 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+ul{
+	list-style: none;
+}
+a{
+    outline: 0;
+	text-decoration: none;
+}
+figure{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background: linear-gradient(25deg, violet, pink); /*25도 방향으로 그라데이션 효과*/
+}
+figure h1{
+	position: absolute;
+	top: 7vh;
+	left: 4vw;
+	font-size: 0;
+}
+figure h1 strong{
+	font-size: 36px;
+	font-family: "arial";
+	color: #fff;
+	line-height: 1.4;
+	letter-spacing: 1px;
+}
+figure h1 span{
+	font-size: 12px;
+	font-family: "arial";
+	color: #fff;
+	opacity: 0.8;
+	line-height: 1;
+	letter-spacing: 1px;
+}
+figure .menu{
+	position: absolute;
+	top: 8vh;
+	right: 4vw;
+	font-size: 24px;
+	color: #fff;
+}
+figure > p{
+	position: absolute;
+	bottom: 7vh;
+	left: 50%;
+	transform: translateX(-50%);
+	font: 12px/1 "arial";
+	color: #fff;
+	letter-spacing: 2px;
+	opacity: 0.8;
+}
+figure section{ 
+	width: 20vw;
+	height: 65vh;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -32vh;
+	margin-left: -10vw;	
+}
+figure section article{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+figure section article .inner{
+	width: 100%;
+	height: 100%;
+	background-color: #f0f7ff;
+	padding: 5vh 2.5vw 8vh;
+	box-sizing: border-box;
+	display: flex;
+    flex-wrap: wrap; /*자동으로 줄 바꿈*/
+	justify-content: center;
+	align-content: space-between; /*위아래 양끝으로 배치*/
+	border-radius: 10px;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+	opacity: 0.9;
+	transform: scale(1.1);
+}
+/*배경 이미지 가상 요소에 전달 즉, 프레임 역할*/
+figure section article .inner .pic{
+	background-image: url(MP3_image.jpg);
+	width: 15vw;
+	height: 15vw;
+	margin: 0px auto;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/*::before은 그림자 효과, ::after은 음반 이미지를 위해서 사용*/
+figure section article .inner .pic::before,
+figure section article .inner .pic::after{
+	content: "";
+	display: block;
+	width: inherit; /*.pic으로부터 너빗값 상속받음*/
+	height: inherit;
+	border-radius: inherit;
+	position: absolute;
+	background-image: inherit;
+	background-position: center; /*배경 이미지 정중앙에 위치*/
+	background-size: cover; 	
+}
+figure section article .inner .pic::before{
+	transform: translateY(10%);
+	filter: blur(20px) brightness(1.6);
+}
+/*CD의 중앙홀처럼 작은 원 모양 z-index값 조정하여 .pic 위에 생성*/
+figure section article .inner .pic .dot{
+	width: 3vw;
+	height: 3vw;
+	border-radius: 50%;
+	background-color: #e4f1ff;
+	z-index: 1;
+	box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+figure section article .inner .txt{
+	text-align: center;	
+}
+figure section article .inner .txt h2{
+	font-size: 20px;
+	font-family: "arial";
+	color: #222;
+	margin-bottom: 2vh;
+}
+figure section article .inner .txt p{
+	font-size: 12px;
+	margin-bottom: 3vh;
+	color: #777;
+}
+figure section article .inner .txt ul{
+	display: flex;
+	justify-content: space-around; /*li 간격 균일하게 배치*/
+}
+figure section article .inner .txt ul li{
+	cursor: pointer;
+	opacity: 0.6;
+	transition: 0.5s;
+}
+figure section article .inner .txt ul li.play{
+	transform: scale(1.5);
+	opacity: 0.9;
+}
+figure section article .inner .txt ul li:hover{
+	transform: scale(1.5);
+	opacity: 0.8;
+}
+figure section article .inner .txt ul li.play:hover{
+	transform: scale(2);
+	opacity: 1;
+}
+@keyframes ani {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+/*그림자는 10% 아래에서 회전*/
+@keyframes ani2 {
+	0% {transform: translateY(10%) rotate(0deg);}
+	100% {transform: translateY(10%) rotate(360deg);}
+}
+/*on 클래스 붙으면*/
+figure section article .inner .pic.on::after{
+	animation: ani 4s linear infinite;
+}
+figure section article .inner .pic.on::before{
+	animation: ani2 4s linear infinite;
+}

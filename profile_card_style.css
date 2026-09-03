@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); /*구글 웹 폰트 orbitron 사용*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /*기존 박스 크기 유지하며 안쪽 여백 지정*/
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body {
+    background-color: black;
+}
+
+section{
+    width: 340px;
+    padding: 30px;
+    background-color: #fff;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+section nav.menu{
+    width: 100%;
+}
+/*float 해제하여 높잇값 제대로 인식함*/
+section nav.menu::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+section nav.menu a{
+    font-size: 20px;
+    color: #666;
+}
+section nav.menu a:nth-last-of-type(1){
+    float: left;
+}
+section nav.menu a:nth-last-of-type(2){
+    float: right;
+}
+section article.profile{
+    width: 100%;
+    text-align: center;
+}
+section article.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /*동그란 형태 만듦*/
+    margin-bottom: 20px;
+    box-shadow: 5px 15px 30px rgba(0,0,0,0.493);
+}
+section article.profile h1{
+    font-weight: bold;
+    font-size: 22px;
+    font-family: "arial";
+    line-height: 1; /*텍스트 줄 간격*/
+    color: #555;
+    margin-bottom: 5px;
+}
+section article.profile h2{
+    font-weight: normal;
+    font-size: 12px;
+    font-family: "arial";
+    line-height: 1;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+section a.btnView{
+    display: block;
+    width: 180px;
+    height: 32px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
+    font-size: 10px;
+    font-family: "arial";
+    color: #fff;
+    line-height: 32px;
+    text-align: center;
+    background-color: rgb(247, 139, 0);
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.493);
+}
+section ul.contact{
+    margin-bottom: 25px;
+}
+section ul.contact li{
+    width: 100%;
+    padding: 10px 0px; /*내부 여백 위아래 10px*/
+    border-bottom: 1px solid #eee;
+}
+/*하단 테두리 제거*/
+section ul.contact li:last-child{
+    border-bottom: none;
+}
+section ul.contact li i{
+    width: 20%;
+    text-align: center;
+    color: #555;
+    font-size: 15px;
+    text-shadow: 2px 2px 2px #ddd;
+}
+section ul.contact li span{
+    font-weight: normal;
+    font-size: 11px;
+    font-family: "orbitron";
+    color: #555;
+    letter-spacing: 1px; /*텍스트 자간*/
+}
+section nav.others{
+    width: 100%;
+    text-align: center; /*a 요소 버튼 가운데 정렬*/
+}
+section nav.others a{
+    display: inline-block; /*인라인 요소인 a 너빗값과 높잇값 지정하기 위함*/
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+section nav.others a:nth-of-type(1) {
+	background-color: rgb(247, 139, 0);
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.493); 
+}
+section nav.others a:nth-of-type(2) {
+	background-color: lightcoral;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.493); 
+}
+section nav.others a:nth-of-type(3) {
+	background-color: #ff6a6a;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.493); 
+}
+section nav.others a:nth-of-type(4) {
+	background-color: #ed4848;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.493); 
+}

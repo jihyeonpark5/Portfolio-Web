@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <link rel="icon" href="favicon (2).ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="gallery_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--Swiper 플러그인 사용-->
+    <!--기본적인 레이아웃 자동 생성되므로 클래스 이름 변경 X-->
+</head>
+<body>
+    <div class="wrap">
+        <h1>WEB <span>PORTFOLIO</span></h1>
+        <!--정지, 자동 재생 버튼-->
+        <ul class="auto">
+            <li class="btnStart"><i class="fas fa-play"></i></li>
+            <li class=" btnStop"><i class="fas fa-pause"></i></li>
+        </ul>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="gallery_img/pic1.png">
+                        <h2>>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, optio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="gallery_img/pic2.png">
+                        <h2>>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, optio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="gallery_img/pic3.png">
+                        <h2>>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, optio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="gallery_img/pic4.png">
+                        <h2>>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, optio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="gallery_img/pic5.png">
+                        <h2>>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, optio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--좌우 버튼-->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div><!--현재 활성화된 슬라이드 번호 확인-->
+    </div>
+    <!--옵션값 설정하여 스와이프 구조에 맞게 변경-->
+    <script>
+        const swiper = new Swiper('.wrap', {
+            direction: 'horizontal', // 스와이프 방향은 수평으로 설정
+            loop: true, // 무한반복
+
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction' // 현재 활성화된 슬라이드 번호 유형 숫자로 변경
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: "auto", // CSS에 지정한 슬라이드 크기 반영
+            grabCursor: true, // 마우스로 스와이프 시 움켜진 손바닥 모양으로 변경
+            centeredSlides: true, // 슬라이드 가운데 정렬
+            speed: 1000, // 슬라이드 이동 속도는 1초
+            // Coverflow Effect 적용
+            // 각각의 슬라이드가 원근감 있게 회전
+            effect:"coverflow",
+            coverflowEffect: {
+                rotate: 50, // y축으로 50도만큼 회전
+                stretch: -100, // 슬라이드 간격 100만큼 넓힘
+                depth: 400, // 왜곡 정도가 400만큼인 원근감 설정
+                slideShadows: false // 그림자 효과 제거
+            },
+            autoplay: {
+                delay: 1000, /*1초마다 슬라이드 자동 넘김*/
+                disableOnInteraction: true /*좌우 버튼 클릭 또는 스와이프 시 자동 재생 기능 중지*/
+            }
+        });
+        const btnStart = document.querySelector(".btnStart");
+        const btnStop = document.querySelector(".btnStop");
+
+        btnStart.addEventListener("click", ()=>{swiper.autoplay.start()});
+        btnStop.addEventListener("click", ()=>{swiper.autoplay.stop()});
+    </script>
+</body>
+</html>
